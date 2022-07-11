@@ -104,15 +104,15 @@ where role_name like '%Senior%';
 
 select monthly_salary, role_name from salary s 
 join employee_salary es  on s.id = es.salary_id 
-join roles_employee re on re.id = es.employee_id 
+join roles_employee re on re.employee_id  = es.employee_id 
 join roles r on re.role_id = r.id 
-where role_name like '%Java%';
+where role_name like '%Java %';
 
 --Вывести зарплаты Python разработчиков
 
 select monthly_salary, role_name from salary s 
 join employee_salary es  on s.id = es.salary_id 
-join roles_employee re on re.id = es.employee_id 
+join roles_employee re on re.employee_id  = es.employee_id 
 join roles r on re.role_id = r.id 
 where role_name like '%Python%';
 
@@ -141,7 +141,7 @@ join roles_employee re on e.id = re.employee_id
 join employee_salary es on e.id = es.employee_id
 join salary s on es.salary_id = s.id
 join roles r on re.role_id = r.id
-where role_name like '%Senior JavaScript%';
+where role_name like '%Senior Java %';
 
 --Вывести зарплаты Junior QA инженеров
 
@@ -216,7 +216,7 @@ join roles_employee re on e.id = re.employee_id
 join employee_salary es on e.id = es.employee_id
 join salary s on es.salary_id = s.id
 join roles r on re.role_id = r.id
-order by monthly_salary;
+order by monthly_salary asc;
 
 --Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП от 1700 до 2300
 
@@ -226,7 +226,7 @@ join employee_salary es on e.id = es.employee_id
 join salary s on es.salary_id = s.id
 join roles r on re.role_id = r.id
 where monthly_salary between 1700 and 2300
-order by monthly_salary;
+order by monthly_salary asc;
 
 --Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП меньше 2300
 
@@ -236,7 +236,7 @@ join employee_salary es on e.id = es.employee_id
 join salary s on es.salary_id = s.id
 join roles r on re.role_id = r.id
 where monthly_salary < 2300
-order by monthly_salary;
+order by monthly_salary asc;
 
 --Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 1100, 1500, 2000
 
